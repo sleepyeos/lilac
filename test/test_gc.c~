@@ -1,0 +1,25 @@
+/* anewkirk */
+
+#include "../src/unittesting/minuet.h"
+#include "../include/lilac.h"
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+
+uint32_t tests_run = 0;
+uint32_t asserts_run = 0;
+
+static uint8_t *test_malloc() {
+  mu_assert(1 == 2);
+  return 0;
+}
+
+static uint8_t *all_tests() {
+  mu_run_test(test_malloc);
+  return 0;
+}
+
+int main(void) {
+  mu_run_suite("GC Tests");
+}
